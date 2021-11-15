@@ -46,7 +46,7 @@ void ex01() {
     else
       ary[i] = new Cat();
   }
-  std::cout << std::endl << "aaa" << std::endl << std::endl;
+  std::cout << std::endl << std::endl << std::endl;
   for (int i = 0; i < 4; i++) {
     ary[i]->makeSound();
     delete ary[i];
