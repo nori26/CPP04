@@ -12,12 +12,16 @@ Cat::~Cat() {
 }
 Cat::Cat(const Cat &src) {
   type = src.type;
-  brain_ = src.brain_;
+  brain_ = new Brain(*src.brain_);
   std::cout << type << " : copy" << std::endl;
 }
 Cat &Cat::operator=(const Cat &rhs) {
+  if (this == &rhs) {
+    return *this;
+  }
   type = rhs.type;
-  brain_ = rhs.brain_;
+  brain_ = new Brain(*rhs.brain_);
   return *this;
 }
 void Cat::makeSound() const { std::cout << type << " : meow" << std::endl; }
+void Cat::showIdea() { brain_->showIdea(); }

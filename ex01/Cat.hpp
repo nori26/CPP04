@@ -13,6 +13,7 @@ class Cat : public Animal {
   Cat(const Cat &src);
   Cat &operator=(const Cat &rhs);
   virtual void makeSound() const;
+  void showIdea();
 };
 
 #endif

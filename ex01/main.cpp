@@ -37,19 +37,24 @@ void ex00() {
 
 void ex01() {
   print();
-  Animal* ary[4];
+  Animal* animal[4];
+  Cat c[2];
+  Dog d[2];
 
   std::cout << std::endl;
+  d[0].showIdea();
   for (int i = 0; i < 4; i++) {
     if (i < 2)
-      ary[i] = new Dog();
+      animal[i] = new Dog(d[i]);
     else
-      ary[i] = new Cat();
+      animal[i] = new Cat(c[i - 2]);
   }
-  std::cout << std::endl << std::endl << std::endl;
+  std::cout << std::endl;
+  ((Dog*)(animal[0]))->showIdea();
+  std::cout << std::endl << std::endl;
   for (int i = 0; i < 4; i++) {
-    ary[i]->makeSound();
-    delete ary[i];
+    animal[i]->makeSound();
+    delete animal[i];
   }
   std::cout << std::endl;
 }
