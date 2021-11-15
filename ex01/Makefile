@@ -1,6 +1,6 @@
-NAME		:=
+NAME		:= animal
 CXX			:= clang++
-CXXFLAGS	:= -Wall -Werror -Wextra -MMD -MP -std=c++98
+CXXFLAGS	:= -Wall -Werror -Wextra -MMD -MP -std=c++98 -pedantic
 SRCDIR		:= .
 VPATH 		:= $(shell find $(SRCDIR) -type d | awk '{print $$0":"}')
 OBJDIR		:= ./obj
@@ -59,7 +59,7 @@ rm_exec	:
 
 re		: fclean all
 
-debug	: CXXFLAGS += -g -fsanitize=address
+debug	: CXXFLAGS += -g3 -fsanitize=address
 debug	: re
 
 .PHONY	: all clean fclean re bonus add norm rm_exec rm_reloc b_clean b_fclean head test

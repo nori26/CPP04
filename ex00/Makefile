@@ -1,6 +1,6 @@
 NAME		:= animal
 CXX			:= clang++
-CXXFLAGS	:= -Wall -Werror -Wextra -MMD -MP -std=c++98
+CXXFLAGS	:= -Wall -Werror -Wextra -MMD -MP -std=c++98 -pedantic
 SRCDIR		:= .
 VPATH 		:= $(shell find $(SRCDIR) -type d | awk '{print $$0":"}')
 OBJDIR		:= ./obj
