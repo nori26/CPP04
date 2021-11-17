@@ -11,9 +11,7 @@ Character::~Character() {
   for (size_t i = 0; i < 4; i++) {
     delete materias[i];
   }
-  std::cout << ary << std::endl;
   for (size_t i = 0; i < size; i++) {
-    std::cout << ary[i] << std::endl;
     delete ary[i];
   }
   delete[] ary;
@@ -61,7 +59,7 @@ void Character::unequip(int idx) {
     ary = nary;
   }
   filled &= ~((size_t)1 << idx);
-  ary[idx] = materias[idx];
+  ary[size] = materias[idx];
   materias[idx] = 0;
   size++;
 }
