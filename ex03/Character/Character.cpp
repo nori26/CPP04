@@ -51,7 +51,7 @@ void Character::unequip(int idx) {
     return;
   }
   if (size == cap) {
-    AMateria **nary = new AMateria *[cap * 2];
+    AMateria **nary = new AMateria *[cap *= 2];
     for (size_t i = 0; i < size; i++) {
       nary[i] = ary[i];
     }
