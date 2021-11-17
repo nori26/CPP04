@@ -1,15 +1,22 @@
 #include "Character.hpp"
 
+#include <iostream>
 #include <string>
 
 #include "AMateria.hpp"
 Character::Character(std::string const &src)
-    : name(src), filled(), materias() {}
+    : name(src), filled(), materias(), size(), cap(4), ary(new AMateria *[4]) {}
 
 Character::~Character() {
   for (size_t i = 0; i < 4; i++) {
     delete materias[i];
   }
+  std::cout << ary << std::endl;
+  for (size_t i = 0; i < size; i++) {
+    std::cout << ary[i] << std::endl;
+    delete ary[i];
+  }
+  delete[] ary;
 }
 
 Character::Character(Character const &other) { *this = other; }
@@ -45,7 +52,18 @@ void Character::unequip(int idx) {
   if (!(0 <= idx && idx < 4)) {
     return;
   }
+  if (size == cap) {
+    AMateria **nary = new AMateria *[cap * 2];
+    for (size_t i = 0; i < size; i++) {
+      nary[i] = ary[i];
+    }
+    delete[] ary;
+    ary = nary;
+  }
   filled &= ~((size_t)1 << idx);
+  ary[idx] = materias[idx];
+  materias[idx] = 0;
+  size++;
 }
 
 void Character::use(int idx, ICharacter &target) {
