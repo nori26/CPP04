@@ -4,7 +4,11 @@
 
 MateriaSource::MateriaSource() : index(), materias() {}
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+  for (size_t i = 0; i < 4; i++) {
+    delete materias[i];
+  }
+}
 
 MateriaSource::MateriaSource(MateriaSource const &other) { *this = other; }
 
@@ -20,7 +24,7 @@ void MateriaSource::learnMateria(AMateria *m) {
     std::cout << "couldn't learn anymore" << std::endl;
     return;
   }
-  materias[index++] = m;
+  materias[index++] = m->clone();
 }
 AMateria *MateriaSource::createMateria(std::string const &type) {
   for (int i = 0; i < index; i++) {

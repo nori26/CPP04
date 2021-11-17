@@ -6,7 +6,11 @@
 Character::Character(std::string const &src)
     : name(src), filled(), materias() {}
 
-Character::~Character() {}
+Character::~Character() {
+  for (size_t i = 0; i < 4; i++) {
+    delete materias[i];
+  }
+}
 
 Character::Character(Character const &other) { *this = other; }
 

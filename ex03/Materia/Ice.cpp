@@ -20,8 +20,7 @@ std::string const &Ice::getType() const { return AMateria::getType(); }
 Ice *Ice::clone() const { return new Ice(*this); }
 
 void Ice::use(ICharacter &target) {
-  std::cout << "* shoots an ice bolt at "
-            << "NAME"
-            << " *" << std::endl;
+  std::cout << "* shoots an ice bolt at " << target.getName() << " *"
+            << std::endl;
   (void)target;
 }
