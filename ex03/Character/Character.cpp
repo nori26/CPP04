@@ -37,7 +37,7 @@ void Character::equip(AMateria *m) {
   while (lsb >>= 1) {
     i++;
   }
-  materias[i] = m->clone();
+  materias[i] = m;
   filled |= 1 << i;
 }
 
