@@ -18,7 +18,6 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &other) {
 void MateriaSource::learnMateria(AMateria *m) {
   if (index == 4) {
     std::cout << "couldn't learn anymore" << std::endl;
-    delete m;
     return;
   }
   materias[index++] = m;

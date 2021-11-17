@@ -1,8 +1,10 @@
 #include "Character.hpp"
 
-#include "AMateria.hpp"
+#include <string>
 
-Character::Character(std::string const &src) {}
+#include "AMateria.hpp"
+Character::Character(std::string const &src)
+    : name(src), filled(), materias() {}
 
 Character::~Character() {}
 
@@ -12,5 +14,36 @@ Character &Character::operator=(Character const &other) {
   if (this == &other) {
     return *this;
   }
+  name = other.name;
   return *this;
+}
+
+std::string const &Character::getName() const { return name; }
+
+void Character::equip(AMateria *m) {
+  size_t has_empty = filled ^ 0x0f;
+  if (!has_empty) {
+    return;
+  }
+  size_t i = 0;
+  size_t lsb = has_empty & (~has_empty + 1);
+  while (lsb >>= 1) {
+    i++;
+  }
+  materias[i] = m;
+  filled |= 1 << i;
+}
+
+void Character::unequip(int idx) {
+  if (!(0 <= idx && idx < 4)) {
+    return;
+  }
+  filled &= ~((size_t)1 << idx);
+}
+
+void Character::use(int idx, ICharacter &target) {
+  if (!(0 <= idx && idx < 4) || !materias[idx]) {
+    return;
+  }
+  materias[idx]->use(target);
 }
