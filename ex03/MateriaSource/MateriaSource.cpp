@@ -16,6 +16,9 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &other) {
   if (this == &other) {
     return *this;
   }
+  for (int i = 0; i < 4; i++) {
+    materias[i] = other.materias[i]->clone();
+  }
   return *this;
 }
 

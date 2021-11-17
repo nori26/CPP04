@@ -18,6 +18,9 @@ Character &Character::operator=(Character const &other) {
   if (this == &other) {
     return *this;
   }
+  for (int i = 0; i < 4; i++) {
+    materias[i] = other.materias[i]->clone();
+  }
   name = other.name;
   return *this;
 }
