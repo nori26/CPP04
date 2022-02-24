@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <string>
-Dog::Dog(const std::string &t) {
-  type = t;
+Dog::Dog() : Animal("Dog"){
   std::cout << type << " : hi" << std::endl;
 }
 Dog::~Dog() { std::cout << type << " : bye" << std::endl; }

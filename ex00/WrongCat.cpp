@@ -2,8 +2,7 @@
 #include <string>
 
 #include "WrongCat.hpp"
-WrongCat::WrongCat(const std::string &t) {
-  type = t;
+WrongCat::WrongCat() : WrongAnimal("WrongCat") {
   std::cout << type << " : hi" << std::endl;
 }
 WrongCat::~WrongCat() { std::cout << type << " : bye" << std::endl; }

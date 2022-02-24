@@ -33,3 +33,12 @@ int main() {
     delete i;
   }
 }
+
+
+
+// ex00
+// //const static cat dog
+// ex01
+// //cat dog virtual
+// ex02
+// //animal = 0

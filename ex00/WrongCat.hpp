@@ -4,7 +4,7 @@
 
 class WrongCat : public WrongAnimal {
  public:
-  WrongCat(const std::string &t = "WrongCat");
+  WrongCat();
   ~WrongCat();
   WrongCat(const WrongCat &src);
   WrongCat &operator=(const WrongCat &rhs);

@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <string>
-Cat::Cat(const std::string &t) {
-  type = t;
+Cat::Cat() : Animal("Cat"){
   std::cout << type << " : hi" << std::endl;
 }
 Cat::~Cat() { std::cout << type << " : bye" << std::endl; }
