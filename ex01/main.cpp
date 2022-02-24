@@ -34,36 +34,69 @@ void ex00() {
     delete i;
   }
 }
+#include <stdlib.h>
+#include <unistd.h>
 
-void ex01() {
+void  ex01_2()
+{
   print();
-  Animal* animal[4];
-  Cat c[2];
-  Dog d[2];
+  std::cout << "\n============================\n" << std::endl;
+  {
+    Cat cat;
+    Cat cat2(cat);
+    Dog dog;
+    Dog dog2(dog);
 
-  std::cout << std::endl;
-  d[0].showIdea();
-  for (int i = 0; i < 4; i++) {
-    if (i < 2)
-    {
-      Dog *p = new Dog(d[i]);
-      animal[i] = p;
-      std::cout << animal[i] << std::endl << p << std::endl;
-    }
-    else
-      animal[i] = new Cat(c[i - 2]);
+    cat.showIdea();
+    cat2.showIdea();
+    dog.showIdea();
+    dog2.showIdea();
   }
-  std::cout << std::endl;
-  ((Dog*)(animal[0]))->showIdea();
-  std::cout << std::endl << std::endl;
-  for (int i = 0; i < 4; i++) {
-    animal[i]->makeSound();
-    delete animal[i];
+  std::cout << "\n============================\n" << std::endl;
+  {
+    Animal *dog = new Dog();
+    Animal *cat = new Cat();
+    delete dog;
+    delete cat;
   }
-  std::cout << std::endl;
+  std::cout << "\n============================\n" << std::endl;
+  {
+    Animal *dog = new Dog();
+    Animal *cat = new Cat();
+    dog->makeSound();
+    cat->makeSound();
+    delete dog;
+    delete cat;
+  }
 }
+
+// void ex01() {
+//   print();
+//   Animal* animal[4];
+//   Cat c[2];
+//   Dog d[2];
+
+//   std::cout << std::endl;
+//   d[0].showIdea();
+//   for (int i = 0; i < 4; i++) {
+//     if (i < 2)
+//       animal[i] = new Dog(d[i]);
+//     else
+//       animal[i] = new Cat(c[i - 2]);
+//   }
+//   std::cout << std::endl;
+//   ((Dog*)(animal[0]))->showIdea();
+//   std::cout << std::endl << std::endl;
+//   for (int i = 0; i < 4; i++) {
+//     animal[i]->makeSound();
+//     delete animal[i];
+//   }
+//   while (1)
+//     sleep(1);
+//   std::cout << std::endl;
+// }
 
 int main() {
   // ex00();
-  ex01();
+  ex01_2();
 }
