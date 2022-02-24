@@ -8,7 +8,7 @@ class Cat : public Animal {
   Brain *brain_;
 
  public:
-  Cat(const std::string &t = "Cat");
+  Cat();
   ~Cat();
   Cat(const Cat &src);
   Cat &operator=(const Cat &rhs);

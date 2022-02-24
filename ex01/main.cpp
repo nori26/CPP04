@@ -45,7 +45,11 @@ void ex01() {
   d[0].showIdea();
   for (int i = 0; i < 4; i++) {
     if (i < 2)
-      animal[i] = new Dog(d[i]);
+    {
+      Dog *p = new Dog(d[i]);
+      animal[i] = p;
+      std::cout << animal[i] << std::endl << p << std::endl;
+    }
     else
       animal[i] = new Cat(c[i - 2]);
   }
@@ -60,6 +64,6 @@ void ex01() {
 }
 
 int main() {
-  ex00();
+  // ex00();
   ex01();
 }

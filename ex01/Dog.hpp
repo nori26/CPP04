@@ -8,7 +8,7 @@ class Dog : public Animal {
   Brain *brain_;
 
  public:
-  Dog(const std::string &t = "Dog");
+  Dog();
   ~Dog();
   Dog(const Dog &src);
   Dog &operator=(const Dog &rhs);

@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <string>
-Cat::Cat(const std::string &t) : Animal(), brain_(new Brain()) {
-  type = t;
+Cat::Cat() : Animal("Cat"), brain_(new Brain()) {
   std::cout << type << " : hi" << std::endl;
 }
 Cat::~Cat() {
