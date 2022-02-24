@@ -8,8 +8,8 @@ class Dog : public Animal {
   Brain *brain_;
 
  public:
-  Dog(const std::string &t = "Dog");
-  ~Dog();
+  Dog();
+  virtual ~Dog();
   Dog(const Dog &src);
   Dog &operator=(const Dog &rhs);
   virtual void makeSound() const;

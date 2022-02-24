@@ -8,8 +8,8 @@ class Cat : public Animal {
   Brain *brain_;
 
  public:
-  Cat(const std::string &t = "Cat");
-  ~Cat();
+  Cat();
+  virtual ~Cat();
   Cat(const Cat &src);
   Cat &operator=(const Cat &rhs);
   virtual void makeSound() const;

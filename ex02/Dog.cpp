@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <string>
-Dog::Dog(const std::string &t) : Animal(), brain_(new Brain()) {
-  type = t;
+Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
   std::cout << type << " : hi" << std::endl;
 }
 Dog::~Dog() {
