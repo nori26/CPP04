@@ -5,17 +5,9 @@
 
 #include "AMateria.hpp"
 Character::Character(std::string const &src)
-    : name(src), filled(), materias(), size(), cap(4), ary(new AMateria *[4]) {}
+    : name(src), filled(), materias() {}
 
-Character::~Character() {
-  for (size_t i = 0; i < 4; i++) {
-    delete materias[i];
-  }
-  for (size_t i = 0; i < size; i++) {
-    delete ary[i];
-  }
-  delete[] ary;
-}
+Character::~Character() {}
 
 Character::Character(Character const &other) { *this = other; }
 
@@ -24,9 +16,12 @@ Character &Character::operator=(Character const &other) {
     return *this;
   }
   for (int i = 0; i < 4; i++) {
+    if (!other.materias[i])
+      continue ;
     materias[i] = other.materias[i]->clone();
   }
   name = other.name;
+  filled = other.filled;
   return *this;
 }
 
@@ -50,18 +45,8 @@ void Character::unequip(int idx) {
   if (!(0 <= idx && idx < 4)) {
     return;
   }
-  if (size == cap) {
-    AMateria **nary = new AMateria *[cap *= 2];
-    for (size_t i = 0; i < size; i++) {
-      nary[i] = ary[i];
-    }
-    delete[] ary;
-    ary = nary;
-  }
   filled &= ~((size_t)1 << idx);
-  ary[size] = materias[idx];
   materias[idx] = 0;
-  size++;
 }
 
 void Character::use(int idx, ICharacter &target) {

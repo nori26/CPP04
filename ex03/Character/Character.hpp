@@ -10,9 +10,6 @@ class Character : public ICharacter {
   std::string name;
   size_t filled;
   AMateria* materias[4];
-  size_t size;
-  size_t cap;
-  AMateria** ary;
 
  public:
   Character(std::string const& src = "");

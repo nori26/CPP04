@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 Animal::Animal(const std::string &t) : type(t) {
-  std::cout << type << " : hi" << std::endl;
+  std::cout << "Animal" << type << " : hi" << std::endl;
 }
 Animal::~Animal() { std::cout << "Animal " << type << " : bye " << std::endl; }
 Animal::Animal(const Animal &src) : type(src.type) {
