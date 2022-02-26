@@ -29,7 +29,7 @@ std::string const &Character::getName() const { return name; }
 
 void Character::equip(AMateria *m) {
   size_t has_empty = filled ^ 0x0f;
-  if (!has_empty) {
+  if (!m || !has_empty) {
     return;
   }
   size_t i = 0;

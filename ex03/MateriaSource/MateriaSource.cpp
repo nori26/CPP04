@@ -10,14 +10,16 @@ MateriaSource::~MateriaSource() {
   }
 }
 
-MateriaSource::MateriaSource(MateriaSource const &other) { *this = other; }
+MateriaSource::MateriaSource(MateriaSource const &other) : index(other.index), materias() { *this = other; }
 
 MateriaSource &MateriaSource::operator=(MateriaSource const &other) {
   if (this == &other) {
     return *this;
   }
   for (int i = 0; i < 4; i++) {
-    materias[i] = other.materias[i]->clone();
+    delete materias[i];
+    if (other.materias[i])
+      materias[i] = other.materias[i]->clone();
   }
   return *this;
 }
