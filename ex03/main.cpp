@@ -12,8 +12,9 @@ int main() {
   Cure* cure = new Cure();
   src->learnMateria(ice);
   src->learnMateria(cure);
+  src->learnMateria(NULL);
 
-  size_t  n = 0;
+  size_t n = 0;
   ICharacter* me = new Character("me");
   ICharacter* me2 = new Character("me2");
   AMateria* materias[10] = {};
@@ -22,12 +23,10 @@ int main() {
   materias[n++] = src->createMateria("cure");
   materias[n++] = src->createMateria("cure");
 
-  for (size_t i = 0; i < 10; i++)
-  {
+  for (size_t i = 0; i < 10; i++) {
     me->equip(materias[i]);
   }
-  for (size_t i = 0; i < 10; i++)
-  {
+  for (size_t i = 0; i < 10; i++) {
     me2->equip(materias[i]);
   }
   ICharacter* bob = new Character("bob");
@@ -35,8 +34,7 @@ int main() {
   me->use(1, *bob);
   me->use(2, *bob);
   me->use(3, *bob);
-  for (size_t i = 0; i < 10; i++)
-  {
+  for (size_t i = 0; i < 10; i++) {
     me->unequip(i);
   }
 
@@ -45,8 +43,7 @@ int main() {
 
   a = b;
 
-  for (size_t i = 0; i < 10; i++)
-  {
+  for (size_t i = 0; i < 10; i++) {
     delete materias[i];
   }
   delete cure;

@@ -19,7 +19,7 @@ Dog &Dog::operator=(const Dog &rhs) {
     return *this;
   }
   type = rhs.type;
-  brain_ = new Brain(*rhs.brain_);
+  *brain_ = *rhs.brain_;
   return *this;
 }
 void Dog::makeSound() const { std::cout << type << " : woof" << std::endl; }

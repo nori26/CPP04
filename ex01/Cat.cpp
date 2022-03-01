@@ -19,8 +19,7 @@ Cat &Cat::operator=(const Cat &rhs) {
     return *this;
   }
   type = rhs.type;
-  delete brain_;
-  brain_ = new Brain(*rhs.brain_);
+  *brain_ = *rhs.brain_;
   return *this;
 }
 void Cat::makeSound() const { std::cout << type << " : meow" << std::endl; }

@@ -20,6 +20,10 @@ std::string const &Ice::getType() const { return AMateria::getType(); }
 Ice *Ice::clone() const { return new Ice(*this); }
 
 void Ice::use(ICharacter &target) {
+  if (!reinterpret_cast<const void*>(&target)) {
+    std::cout << "Error"  << std::endl;
+    return;
+  }
   std::cout << "* shoots an ice bolt at " << target.getName() << " *"
             << std::endl;
 }

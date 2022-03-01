@@ -19,5 +19,9 @@ std::string const &Cure::getType() const { return AMateria::getType(); }
 Cure *Cure::clone() const { return new Cure(*this); }
 
 void Cure::use(ICharacter &target) {
+  if (!reinterpret_cast<const void*>(&target)) {
+    std::cout << "Error"  << std::endl;
+    return;
+  }
   std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
